@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import config from './config';
 
 const Container = styled.div`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
   width:100%;
-  display : grid;
-  grid-template-columns : 800px 800px;
-  grid-gap: 20px 20px;
   min-width : 0;
   min-height : 0;
   font-family: 'Roboto', sans-serif;
@@ -19,14 +19,10 @@ const Image = styled.img`
 `
 
 const Image2 = styled.img`
-  width : 150px;
-  margin-left : 630px;
-  margin-top : 50px;
-  grid-column :1;
-  grid-row : 1;
-  text-align : right;
-  min-width : 0;
-  min-height : 0;
+  margin-top :40px;
+  margin-left: 75%;
+  width: 20%;
+  height: auto;
 `
 
 const Header = styled.div`
@@ -34,14 +30,12 @@ const Header = styled.div`
   margin-top:60px;
   margin-bottom : 40px;
   font-size : 72px;
-  grid-column :2;
-  grid-row : 1;
+  width: 50%;
   // text-align : center;
   font-family: 'Pacifico', cursive;
 `
 const BoxPanel = styled.div`
-  grid-column : 1/ span 2;
-  grid-row : 2;
+  width: 100%;
   background : rgba(83,166,166,0.5);
   overflow: hidden;
   height : 450px;
@@ -54,12 +48,10 @@ const BoxPanel = styled.div`
 `
 
 const Panel = styled.div`
-  grid-column : 1;
-  grid-row : 3;
   background : rgba(166,166,83,0.5);
   overflow: hidden;
   height : 175px;
-  padding :15px;
+  width : 50%;
   text-align: center;
   div{
     display:inline-block;
@@ -70,12 +62,24 @@ const Panel = styled.div`
   }
   `
 const Panel2 = styled.div`
-  grid-column : 2;
-  grid-row : 3;
   background : rgba(166,166,83,0.5);
   overflow: hidden;
   height : 175px;
-  padding :15px;
+  width : 50%;
+  text-align: center;
+  div{
+    display:inline-block;
+    margin : 10px;
+  }
+  button{
+    display:inline-block;
+  }
+`
+const Panel3 = styled.div`
+  background : rgba(166,166,83,0.7);
+  overflow: hidden;
+  height : 175px;
+  width : 100%;
   text-align: center;
   div{
     display:inline-block;
@@ -140,12 +144,20 @@ class App extends Component {
       })
     }
   }
+  setReset() {
+    this.setState({
+      isOpen: 1,
+      state: 1
+    })
+  }
   render() {
     console.log(this.state)
     return (
       <Container className={this.state.isOpen ? "greenBlackground" : "redBlackground"}>
         {/* <Container className="greenBlackground"> */}
-        <Image2 src="img/logo.png" align="middle" />
+        <div style={{ width: '50%' }}>
+          <Image2 src="img/logo.png" align="middle" />
+        </div>
         <Header>Anti Thief</Header>
         <BoxPanel >
           <h1> Status </h1>
@@ -161,6 +173,10 @@ class App extends Component {
           <h2>I'm coming home</h2>
           <Button onClick={() => this.setActivate(false)} > Set State</Button>
         </Panel2>
+        <Panel3>
+          <h2>Reboot System</h2>
+          <Button onClick={() => this.setReset()} > Reset</Button>
+        </Panel3>
       </Container >
     );
   }
