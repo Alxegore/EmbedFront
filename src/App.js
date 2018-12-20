@@ -20,17 +20,17 @@ const Image = styled.img`
 
 const Image2 = styled.img`
   margin-top :40px;
-  margin-left: 75%;
+  margin-left: 78%;
   width: 20%;
   height: auto;
 `
 
 const Header = styled.div`
-
+margin-left: 0%;
   margin-top:60px;
   margin-bottom : 40px;
   font-size : 72px;
-  width: 50%;
+  width: 54%;
   // text-align : center;
   font-family: 'Pacifico', cursive;
 `
@@ -155,7 +155,7 @@ class App extends Component {
     return (
       <Container className={this.state.isOpen ? "greenBlackground" : "redBlackground"}>
         {/* <Container className="greenBlackground"> */}
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '45%' }}>
           <Image2 src="img/logo.png" align="middle" />
         </div>
         <Header>Anti Thief</Header>
